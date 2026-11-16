@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f0e8">
+    <title>棋間 | 西洋棋練習</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="棋間首頁">
+          <span class="brand-mark" aria-hidden="true">♞</span>
+          <span>棋間<span class="brand-period">.</span></span>
+        </a>
+        <span class="topbar-label">雙人對弈 · 本機遊玩</span>
+      </header>
+
+      <section class="game-layout" aria-label="西洋棋對弈">
+        <div class="board-column">
+          <div class="player-card opponent-card" id="black-player">
+            <div class="player-avatar black-avatar" aria-hidden="true">♟</div>
+            <div class="player-info">
+              <span class="player-name">黑方</span>
+              <span class="player-caption">Black</span>
+            </div>
+            <span class="turn-indicator" aria-hidden="true"></span>
+          </div>
+
+          <div class="board-frame">
+            <div class="board-coordinates files" aria-hidden="true">
+              <span>a</span><span>b</span><span>c</span><span>d</span>
+              <span>e</span><span>f</span><span>g</span><span>h</span>
+            </div>
+            <div class="board-coordinates ranks" aria-hidden="true">
+              <span>8</span><span>7</span><span>6</span><span>5</span>
+              <span>4</span><span>3</span><span>2</span><span>1</span>
+            </div>
+            <div class="chessboard" id="board" role="grid" aria-label="西洋棋棋盤"></div>
+          </div>
+
+          <div class="player-card self-card" id="white-player">
+            <div class="player-avatar white-avatar" aria-hidden="true">♙</div>
+            <div class="player-info">
+              <span class="player-name">白方</span>
+              <span class="player-caption">White</span>
+            </div>
+            <span class="turn-indicator" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <aside class="game-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">CHESS PRACTICE</p>
+              <h1>友誼對弈</h1>
+            </div>
+            <span class="live-badge"><span></span> 對局中</span>
+          </div>
+
+          <div class="status-card" id="status-card" aria-live="polite">
+            <span class="status-piece" id="status-piece" aria-hidden="true">♙</span>
+            <div>
+              <span class="status-label">現在輪到</span>
+              <strong id="status-text">白方行棋</strong>
+            </div>
+          </div>
+
+          <section class="moves-section" aria-label="行棋紀錄">
+            <div class="section-heading">
+              <h2>行棋紀錄</h2>
+              <span id="move-count">0 回合</span>
+            </div>
+            <div class="move-list" id="move-list">
+              <p class="empty-moves">棋局開始，請白方先行。</p>
+            </div>
+          </section>
+
+          <div class="panel-footer">
+            <button class="button button-secondary" id="undo-button" type="button" disabled>
+              <span aria-hidden="true">↶</span> 悔棋
+            </button>
+            <button class="button button-primary" id="new-game-button" type="button">
+              <span aria-hidden="true">＋</span> 開始新局
+            </button>
+          </div>
+          <p class="hint"><span aria-hidden="true">✦</span> 點選棋子，再點選目標格即可行棋</p>
+        </aside>
+      </section>
+
+      <footer class="page-footer">放慢腳步，想好每一步。<span>♟</span></footer>
+    </main>
+
+    <dialog class="promotion-dialog" id="promotion-dialog" aria-label="選擇升變棋子">
+      <form method="dialog">
+        <p>選擇升變棋子</p>
+        <div class="promotion-options" id="promotion-options"></div>
+      </form>
+    </dialog>
+
+    <script src="chess.js"></script>
+  </body>
+</html>
